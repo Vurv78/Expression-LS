@@ -59,7 +59,7 @@
         },
         "types": {
             "name": "entity.name.type",
-            "match" : "\\b(number|string|normal|vector|void|angle|quaternion|vector2|vector4|table)\\b"
+            "match" : "\\b(number|string|normal|vector|void|angle|quaternion|vector2|vector4|table|ranger|coroutine|webaudio|array|wirelink|tracedata|stcontrol|matrix2|matrix4|matrix|gtable|ftrace|entity|complex|bone|effect|webmaterial)\\b"
         },
         "operators": {
             "name": "keyword.operator",

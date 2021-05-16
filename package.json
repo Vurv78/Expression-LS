@@ -2,7 +2,7 @@
     "name": "e2syntax",
     "displayName": "Expression2 Syntax",
     "description": "Full Expression2 Syntax support with highlighting and autocomplete.",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.52.0"
     },
