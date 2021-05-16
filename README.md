@@ -1,0 +1,7 @@
+# E2Syntax
+Adds [Expression2](https://github.com/wiremod/wire) syntax highlighting to VSCode.
+
+## Why?
+1. Because I can
+2. So I could hopefully get Expression2 on Github Linguist
+3. So we could get proper E2 syntax highlighting instead of using Golo
