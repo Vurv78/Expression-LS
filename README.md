@@ -13,3 +13,5 @@ Adds [Expression2](https://github.com/wiremod/wire) syntax highlighting to VSCod
 ## Usage
 This is currently not on the VSCode Extensions Market.  
 Put this into your User folder's .vscode/extensions folder and it will work.
+
+![Showcase](showcase.png)
