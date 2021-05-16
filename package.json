@@ -13,7 +13,7 @@
         "languages": [{
             "id": "expression2",
             "aliases": ["Expression2", "expression2"],
-            "extensions": [".e2",".expression2",".txt"],
+            "extensions": [".e2",".expression2",".txt", ".e2.txt"],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
