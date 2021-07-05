@@ -1,0 +1,18 @@
+#[]# Incorrect syntax compilation
+@name Hello world
+@persist nothing
+@autoupdate something
+
+print = 214
+
+dd@dname
+
+5v0ee2
+
+50e
+
+0x
+
+"\"
+
+print( while (1) {} )

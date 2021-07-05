@@ -1,0 +1,85 @@
+{
+	"kw-for": {
+		"prefix": "for",
+		"body": [
+			"for (I = 1, ${1:Until}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "For loop. First number is the starting number, Second is the ending number, Optional third number is how much to increment by each time"
+	},
+	"kw-foreach": {
+		"prefix": "foreach",
+		"body": [
+			"foreach (${1:Value}:${2:type} = ${3:TOrArray}:${4:table}) {",
+			"\t$5",
+			"}"
+		],
+		"description": "Foreach loop, can go through both tables and arrays. Lua's pairs/ipairs"
+	},
+	"kw-if": {
+		"prefix": "if",
+		"body": [
+			"if (${1:Condition}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "If statement"
+	},
+	"kw-elseif": {
+		"prefix": "elseif",
+		"body": [
+			"elseif (${1:Condition}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Elseif keyword."
+	},
+	"kw-else": {
+		"prefix": "else",
+		"body": [
+			"else {",
+			"\t$0",
+			"}"
+		],
+		"description": "Else keyword"
+	},
+	"kw-while": {
+		"prefix": "while",
+		"body": [
+			"while (${1:condition}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "While statement, execute this while the condition is met. Be sure to check for perf! And you probably don't even need this."
+	},
+	"kw-continue": {
+		"prefix": "continue",
+		"body": "continue $0",
+		"description": "Continue keyword, skip to the next item in a loop"
+	},
+	"kw-break": {
+		"prefix": "break",
+		"body": "break $0",
+		"description": "Break keyword. Break out of any loop, such as a for or while loop"
+	},
+	"kw-return": {
+		"prefix": "return",
+		"body": "return $0",
+		"description": "Return keyword. Returns a value from a function"
+	},
+	"kw-local": {
+		"prefix": "local",
+		"body": "local $0",
+		"description": "Local keyword. Defines a variable in the scope you're in."
+	},
+	"kw-function": {
+		"prefix": "function",
+		"body": [
+			"function void ${0:do_stuff}() {",
+			"\t$0",
+			"}"
+		],
+		"description": "Function"
+	}
+}

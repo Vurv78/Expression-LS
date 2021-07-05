@@ -1,0 +1,44 @@
+{
+	"dr-name": {
+		"scope": "source.e2",
+		"prefix": "@name",
+		"description": "Directive ``@name``",
+		"body": "@name ${0:generic}"
+	},
+	"dr-model": {
+		"scope": "source.e2",
+		"prefix": "@model",
+		"description": "Directive ``@model``",
+		"body": "@model $0"
+	},
+	"dr-persist": {
+		"scope": "source.e2",
+		"prefix": "@persist",
+		"description": "Directive ``@persist``",
+		"body": "@persist ${1:Var}:${2:type}"
+	},
+	"dr-inputs": {
+		"scope": "source.e2",
+		"prefix": "@inputs",
+		"description": "Directive ``@inputs``",
+		"body": "@inputs $0"
+	},
+	"dr-outputs": {
+		"scope": "source.e2",
+		"prefix": "@outputs",
+		"description": "Directive ``@outputs``",
+		"body": "@outputs $0"
+	},
+	"dr-trigger": {
+		"scope": "source.e2",
+		"prefix": "@trigger",
+		"description": "Directive ``@trigger``. Either ``all`` ``none`` or specific inputs",
+		"body": "@trigger ${0:none}"
+	},
+	"dr-autoupdate": {
+		"scope": "source.e2",
+		"prefix": "@autoupdate",
+		"description": "Directive ``@autoupdate``",
+		"body": "@autoupdate"
+	}
+}

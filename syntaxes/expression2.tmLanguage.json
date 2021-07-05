@@ -1,24 +1,70 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "Expression2",
-    "patterns": [
-        {"include": "#preproc"},
-        {"include": "#comment"},
-        {"include": "#directive"},
-
-        {"include": "#strings"},
-        {"include": "#keywords"},
-        {"include": "#constant"},
-        {"include": "#operators"},
-        {"include": "#numbers"},
-        {"include": "#identifier"},
-        {"include": "#functioncall"},
-        {"include": "#types"}
-    ],
+    "patterns": [{
+        "include": "#core"
+    }],
     "repository": {
-        "preproc": {
-            "name": "meta.preprocessor",
-            "match": "#(ifn?def|endif|else|include)"
+        "core": {
+            "patterns": [
+                {"include": "#preprocessing"},
+                {"include": "#statement"},
+                {"include": "#expression"},
+                {"include": "#invalid_syntax"}
+            ]
+        },
+        "expression": {
+            "patterns": [
+                {"include": "#constants"},
+
+                {"include": "#operators"},
+                {"include": "#grammar"},
+
+                {"include": "#identifier"},
+                {"include": "#call"},
+                {"include": "#type"}
+            ]
+        },
+        "statement": {
+            "patterns": [
+                {"include": "#function_def"},
+                {"include": "#keyword_stmt"}
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.numeric",
+                    "match": "\\b((?:0x)?\\d+(?:[e.]\\d+)?)\\b"
+                },
+                {
+                    "name": "string.quoted.double",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [{
+                        "name": "constant.character.escape",
+                        "match": "\\\\(a|b|f|n|r|t|v)"
+                    }]
+                },
+                {
+                    "name": "variable.other",
+                    "match": "\\b_[\\w_]*\\b"
+                },
+                {
+                    "name": "constant.language",
+                    "match": "\\bThis\\b"
+                }
+            ]
+        },
+        "preprocessing": {
+            "patterns": [
+                {
+                    "name": "meta.preprocessor",
+                    "match": "#(ifn?def|endif|else|include)"
+                },
+                {"include": "#comment"},
+                {"include": "#directive"}
+            ]
         },
         "comment": {
             "patterns": [
@@ -35,55 +81,124 @@
         },
         "directive": {
             "patterns": [{
-                "name": "entity.name.function",
-                "match": "@(name|model|trigger|autoupdate).*\n?"
+                "name": "meta.preprocessor",
+                "match": "@(name|model|trigger|autoupdate)\\b.*\n?"
             }, {
-                "name": "entity.name.function",
-                "match": "@(inputs|outputs|persist)"
+                "name": "meta.preprocessor",
+                "match": "@(inputs|outputs|persist)\\b"
             }]
         },
-        "keywords": {
+        "keyword_stmt": {
             "patterns": [{
-                "name": "keyword.control.expression2",
-                "match": "\\b(if|while|for|return|switch|foreach|case|default|break|local|continue|else(if)?|function)\\b"
+                "name": "keyword.control",
+                "match": "\\bif|while|for(each)?|return|switch|case|default|break|local|continue|else(?:if)?|function\\b"
             }]
         },
-        "strings" : {
-            "name": "string.quoted.double.expression2",
-            "begin": "\"",
-            "end": "\"",
-            "patterns": [{
-                "name": "constant.character.escape.expression2",
-                "match": "\\\\."
-            }]
-        },
-        "types": {
+        "type": {
             "name": "entity.name.type",
-            "match" : "\\b(number|string|normal|vector|void|angle|quaternion|vector2|vector4|table|ranger|coroutine|webaudio|array|wirelink|tracedata|stcontrol|matrix2|matrix4|matrix|gtable|ftrace|entity|complex|bone|effect|webmaterial)\\b"
+            "match" : "\\bnumber|string|vector|void|angle|quaternion|vector2|vector4|table|ranger|coroutine|webaudio|array|wirelink|tracedata|stcontrol|matrix2|matrix4|matrix|gtable|ftrace|entity|complex|bone|effect|webmaterial\\b"
         },
         "operators": {
             "name": "keyword.operator",
-            "match": "\\||\\|\\||<<|>>|&&|&|\\$|\\?|!|\\^|\\^\\^|\\+\\+|\\+|\\+=|-=|\\*=|\\/=|\\-|\\-\\-|\\*|\\/|~|%|==|=|!=|<=|>=|<|>"
+            "match": "(\\||\\|\\||<<|>>|&&|&|\\$|\\?|!|\\^|\\^\\^|\\+\\+|\\+|\\+=|-=|\\*=|\\/=|\\-|\\-\\-|\\*|\\/|~|%|==|=|!=|<=|>=|<|>)"
         },
-        "constant": {
-            "name": "variable.other.constant",
-            "match": "\\b_[\\w_]*\\b"
-        },
-        "numbers": {
-            "name": "constant.numeric",
-            "match": "(0x)?\\d+([e.]\\d+)?"
+        "grammar": {
+            "name": "keyword.operator",
+            "match": ":|,|\\(|\\)|\\[|\\]|{|}"
         },
         "identifier": {
             "name": "variable.other",
             "match": "\\b([A-Z][a-zA-Z\\d]*(_[a-zA-Z\\d]+)*)\\b"
         },
-        "functioncall": {
-            "match": "\\b([a-z][A-Za-z]*)\\(",
+        "call": {
+            "name": "invalid.parameter",
+            "match": "\\b([a-z][A-Za-z]*)(\\()(.*)(\\))",
             "captures": {
                 "1": {
-                  "name": "entity.name.function"
+                    "name": "entity.name.function",
+                    "patterns": [{"include": "#function_identifier"}]
+                },
+                "2": {
+                    "name": "keyword.operator"
+                },
+                "3": {
+                    "name": "invalid",
+                    "patterns": [
+                        {"include": "#expression"},
+                        {"include": "#constants"},
+                        {"include": "#grammar"}
+                    ]
+                },
+                "4" : {
+                    "name": "keyword.operator"
                 }
             }
+        },
+        "function_def": {
+            "name": "entity.name.function",
+            "patterns": [
+                {
+                    "name": "invalid",
+                    "begin": "\\b(function)\\s+([a-z]+\\s+)?(?:([a-z]+)(:))?([a-z]\\w*)(\\()([^)]*)(\\))[\\s\\S]*({)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.control"
+                        },
+                        "2": {
+                            "name": "meta.return-type"
+                        },
+                        "3": {
+                            "name": "entity.name.type"
+                        },
+                        "4": {
+                            "name": "keyword.operator"
+                        },
+                        "5": {
+                            "patterns": [{"include": "#function_identifier"}]
+                        },
+                        "6": {
+                            "name": "keyword.operator"
+                        },
+                        "7": {
+                            "name": "invalid.params",
+                            "patterns": [{"include": "#function_def_params"}]
+                        },
+                        "8": {
+                            "name": "keyword.operator"
+                        },
+                        "9": {
+                            "name": "keyword.operator"
+                        }
+                    },
+                    "end": "(})",
+                    "endCaptures": {
+                        "1": {
+                            "name": "keyword.operator"
+                        }
+                    },
+                    "patterns": [
+                        {"include": "#core"}
+                    ]
+                }
+            ]
+        },
+        "function_identifier": {
+            "name": "entity.name.function",
+            "match": "\\b[a-z]\\w*\\b"
+        },
+        "function_def_params": {
+            "name": "invalid",
+            "patterns": [
+                {"include": "#type"},
+                {"include": "#grammar"},
+                {"include": "#identifier"}
+            ]
+        },
+        "invalid_syntax": {
+            "patterns": [{
+                    "name": "invalid.unknown",
+                    "match": "."
+            }]
         }
     },
     "scopeName": "source.e2"

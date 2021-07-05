@@ -1,0 +1,13 @@
+@name Basic Chip
+@persist A:vector
+@model yes
+
+A = vec(5)
+
+A *= 5
+
+if (1) {
+	print("Hello world!")
+}
+
+print("Wow! \n\b\a\t\r\v \c")

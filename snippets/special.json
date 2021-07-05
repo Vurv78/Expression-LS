@@ -1,0 +1,22 @@
+{
+	"sp-This": {
+		"prefix": "This",
+		"body": "This$0",
+		"description": "``This`` is a keyword that represents the object in user defined functions. For example in ``entity:doStuff()``, You could get the entity stored in the ``This`` keyword."
+	},
+	"sp-NULL": {
+		"prefix": "NULL",
+		"body": "noentity()$0",
+		"description": "Writes noentity() for you which is NULL."
+	},
+	"sp-array": {
+		"prefix": "array",
+		"body": "array(${0:1, 2, 3})",
+		"description": "Creates an array object"
+	},
+	"sp-table": {
+		"prefix": "table",
+		"body": "table(${0:1 = 2, 2 = 3, 3 = 4})",
+		"description": "Creates a table object"
+	}
+}

@@ -1,0 +1,27 @@
+function vector helloWorld() {
+	return vec(5)
+}
+
+function vector entity:helloWorld(Hello:vector, World:entity) {
+	print("a", This)
+	print(This)
+	return vec(500)
+}
+
+function entity:test(Ad:entity, V:vector) {
+	print(noentity())
+}
+
+while(1) {
+
+}
+
+
+array(5, 5, 5, "b", 2)
+
+array(2, 2, 2, "c", 2)
+
+table(1,2,3)
+
+while (1) {
+}

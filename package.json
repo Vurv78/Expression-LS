@@ -20,6 +20,20 @@
             "language": "expression2",
             "scopeName": "source.e2",
             "path": "./syntaxes/expression2.tmLanguage.json"
-        }]
+        }],
+        "snippets": [
+            {
+                "language": "expression2",
+                "path": "./snippets/directives.json"
+            },
+            {
+                "language": "expression2",
+                "path": "./snippets/keyword.json"
+            },
+            {
+                "language": "expression2",
+                "path": "./snippets/special.json"
+            }
+        ]
     }
 }
