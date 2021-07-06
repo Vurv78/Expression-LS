@@ -3,8 +3,6 @@
 @persist nothing
 @autoupdate something
 
-print = 214
-
 dd@dname
 
 5v0ee2
@@ -14,5 +12,7 @@ dd@dname
 0x
 
 "\"
+
+print = 2124
 
 print( while (1) {} )

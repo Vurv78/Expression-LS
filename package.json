@@ -1,39 +1,66 @@
 {
-    "name": "e2syntax",
-    "displayName": "Expression2 Syntax",
-    "description": "Full Expression2 Syntax support with highlighting and autocomplete.",
-    "version": "0.1.0",
-    "engines": {
-        "vscode": "^1.52.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [{
-            "id": "expression2",
-            "aliases": ["Expression2", "expression2"],
-            "extensions": [".e2",".expression2",".txt", ".e2.txt"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "expression2",
-            "scopeName": "source.e2",
-            "path": "./syntaxes/expression2.tmLanguage.json"
-        }],
-        "snippets": [
-            {
-                "language": "expression2",
-                "path": "./snippets/directives.json"
-            },
-            {
-                "language": "expression2",
-                "path": "./snippets/keyword.json"
-            },
-            {
-                "language": "expression2",
-                "path": "./snippets/special.json"
-            }
-        ]
-    }
+	"name": "e2syntax",
+	"displayName": "Expression2 Syntax",
+	"description": "Full Expression2 Syntax support with highlighting, snippets and soon autocomplete.",
+	"version": "0.3.0",
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Language Packs",
+		"Snippets"
+	],
+	"publisher": "vurv",
+	"contributes": {
+		"languages": [
+			{
+				"id": "expression2",
+				"aliases": [
+					"Expression2",
+					"expression2"
+				],
+				"extensions": [
+					".e2",
+					".expression2",
+					".txt",
+					".e2.txt"
+				],
+				"configuration": "./e2cfg.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "expression2",
+				"scopeName": "source.e2",
+				"path": "./syntaxes/expression2.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "expression2",
+				"path": "./snippets/directives.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/keyword.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/special.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/functions.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/types.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^16.0.0",
+		"@types/vscode": "^1.57.1"
+	}
 }

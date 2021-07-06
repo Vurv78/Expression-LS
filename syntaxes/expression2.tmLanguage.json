@@ -112,7 +112,7 @@
         },
         "call": {
             "name": "invalid.parameter",
-            "match": "\\b([a-z][A-Za-z]*)(\\()(.*)(\\))",
+            "match": "\\b([a-z]\\w*)(\\()(.*)(\\))",
             "captures": {
                 "1": {
                     "name": "entity.name.function",

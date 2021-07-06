@@ -70,7 +70,7 @@
 	},
 	"kw-local": {
 		"prefix": "local",
-		"body": "local $0",
+		"body": "local ${0:Var}",
 		"description": "Local keyword. Defines a variable in the scope you're in."
 	},
 	"kw-function": {
@@ -81,5 +81,32 @@
 			"}"
 		],
 		"description": "Function"
+	},
+	"kw-switch": {
+		"prefix": "switch",
+		"body": [
+			"switch (${1:Case}) {",
+			"\t$2",
+			"}"
+		],
+		"description": "Switch statement"
+	},
+	"kw-case": {
+		"prefix": "case",
+		"body": [
+			"case ${0:Case},",
+			"\t$1",
+			"break"
+		],
+		"description": "Case keyword"
+	},
+	"kw-default": {
+		"prefix": "default",
+		"body": [
+			"default,",
+			"\t$1",
+			"break"
+		],
+		"description": "Default keyword"
 	}
 }

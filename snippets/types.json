@@ -1,0 +1,115 @@
+{
+	"t-angle": {
+		"description": "(a) Angle type"
+	},
+	"t-array": {
+		"prefix": "array",
+		"body": "array",
+		"description": "(r) Array type. array(1,2,3)"
+	},
+	"t-bone": {
+		"prefix": "bone",
+		"body": "bone",
+		"description": "(b) Bone type"
+	},
+	"t-complex": {
+		"prefix": "complex",
+		"body": "complex",
+		"description": "(c) Complex number type"
+	},
+	"t-effect": {
+		"prefix": "effect",
+		"body": "effect",
+		"description": "(xef) Effect type"
+	},
+	"t-entity": {
+		"prefix": "entity",
+		"body": "entity",
+		"description": "(e) Entity type"
+	},
+	"t-ftrace": {
+		"prefix": "ftrace",
+		"body": "ftrace",
+		"description": "(xft) FTrace type"
+	},
+	"t-gtable": {
+		"prefix": "gtable",
+		"body": "gtable",
+		"description": "(xgt) Global Table type"
+	},
+	"t-matrix": {
+		"prefix": "matrix",
+		"body": "matrix",
+		"description": "(m) Matrix type"
+	},
+	"t-matrix2": {
+		"prefix": "matrix2",
+		"body": "matrix2",
+		"description": "(xm2) Matrix2 type"
+	},
+	"t-matrix4": {
+		"prefix": "matrix4",
+		"body": "matrix4",
+		"description": "(xm4) Matrix4 type"
+	},
+	"t-number": {
+		"prefix": "number",
+		"body": "number",
+		"description": "(n) Number type"
+	},
+	"t-quaternion": {
+		"prefix": "quaternion",
+		"body": "quaternion",
+		"description": "(q) Quaternion type"
+	},
+	"t-ranger": {
+		"prefix": "ranger",
+		"body": "ranger",
+		"description": "(xrd) Ranger(data) type"
+	},
+	"t-stcontrol": {
+		"prefix": "stcontrol",
+		"body": "stcontrol",
+		"description": "(xst) STControl type"
+	},
+	"t-string": {
+		"prefix": "string",
+		"body": "string",
+		"description": "(s) String type"
+	},
+	"t-table": {
+		"prefix": "table",
+		"body": "table",
+		"description": "(t) Table type"
+	},
+	"t-tracedata": {
+		"prefix": "tracedata",
+		"body": "tracedata",
+		"description": "(xtd) TraceData type. This comes from the tracesystem extension from wire extras and is not to be confused with rangerdata"
+	},
+	"t-vector": {
+		"prefix": "vector",
+		"body": "vector",
+		"description": "(v) Vector type"
+	},
+	"t-vector2": {
+		"prefix": "vector2",
+		"body": "vector2",
+		"description": "(xv2) Vector2 type. Usually used for EGP positions"
+	},
+	"t-vector4": {
+		"prefix": "vector4",
+		"body": "vector4",
+		"description": "(xv4) Vector4 type. Usually used for colors"
+	},
+	"t-wirelink": {
+		"prefix": "wirelink",
+		"body": "wirelink",
+		"description": "(xwl) Wirelink type"
+	},
+	"t-webaudio": {
+		"prefix": "webaudio",
+		"body": "webaudio",
+		"description": "(xwa) Webaudio stream type. Requires the webaudio addon https://github.com/Vurv78/WebAudio."
+	}
+}
