@@ -1,4 +1,4 @@
-# ``E2Syntax`` [![License](https://img.shields.io/github/license/Vurv78/WebAudio?color=red)](https://opensource.org/licenses/MIT)
+# ``E2Syntax`` [![License](https://img.shields.io/github/license/Vurv78/E2Syntax?color=red)](https://opensource.org/licenses/MIT)
 
 Adds [Expression2](https://github.com/wiremod/wire) support to [Visual Studio Code](https://code.visualstudio.com/).
 
