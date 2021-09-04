@@ -11,6 +11,10 @@
 		"Language Packs",
 		"Snippets"
 	],
+	"main": "src/extension.ts",
+	"activationEvents": [
+		"onLanguage:expression2"
+	],
 	"publisher": "vurv",
 	"contributes": {
 		"languages": [
