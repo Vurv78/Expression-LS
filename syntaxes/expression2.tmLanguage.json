@@ -82,7 +82,7 @@
 		"directive": {
 			"patterns": [{
 				"name": "meta.preprocessor",
-				"match": "@(name|model|trigger|autoupdate)\\b.*\n?"
+				"match": "@(name|model|trigger|autoupdate|strict)\\b.*\n?"
 			}, {
 				"name": "meta.preprocessor",
 				"match": "@(inputs|outputs|persist)\\b"

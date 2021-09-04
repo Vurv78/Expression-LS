@@ -108,5 +108,25 @@
 			"break"
 		],
 		"description": "Default keyword"
+	},
+	"kw-dowhl": {
+		"prefix": "do",
+		"body": [
+			"do {",
+			"\t$0",
+			"} while (${1:Condition});"
+		],
+		"description": "Do-while loop"
+	},
+	"kw-try": {
+		"prefix": "try",
+		"body": [
+			"try {",
+			"\t$0",
+			"} catch (${1:Exception}) {",
+			"\t$2",
+			"}"
+		],
+		"description": "Try-catch statement"
 	}
 }

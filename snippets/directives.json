@@ -40,5 +40,11 @@
 		"prefix": "@autoupdate",
 		"description": "Directive ``@autoupdate``",
 		"body": "@autoupdate"
+	},
+	"dr-strict": {
+		"scope": "source.e2",
+		"prefix": "@strict",
+		"description": "Directive ``@strict``. Toggles strict errors on undefined behavior",
+		"body": "@strict"
 	}
 }
