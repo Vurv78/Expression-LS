@@ -1,4 +1,4 @@
-# ``Expression-LS`` [![License](https://img.shields.io/github/license/Vurv78/E2Syntax?color=red)](https://opensource.org/licenses/MIT)
+# ``Expression-LS`` [![License](https://img.shields.io/github/license/Vurv78/E2Syntax?color=red)](https://opensource.org/licenses/MIT) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/Vurv78.e2-ls.svg](https://marketplace.visualstudio.com/items?itemName=Vurv78.e2-ls)
 
 Adds [Expression2](https://github.com/wiremod/wire) support to [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -18,8 +18,7 @@ Adds [Expression2](https://github.com/wiremod/wire) support to [Visual Studio Co
 4. For https://github.com/Vurv78/ExpressionScript 
 
 ## Usage
-This is currently not on the extensions market.  
-Put this entire repo into your User folder's ``.vscode/extensions`` folder and it should work, otherwise make an issue.
+Download it [here](https://marketplace.visualstudio.com/items?itemName=Vurv78.e2-ls)
 
 ## Contributing
 Issues and PRs are always open.
