@@ -1,5 +1,6 @@
 {
     "name": "e2-ls",
+    "displayName": "Expression2-LS",
     "description": "Language server for Expression2",
     "author": "Vurv78",
     "contributors": ["Microsoft Corporation"],
@@ -9,6 +10,7 @@
         "type": "git",
         "url": "https://github.com/Vurv78/E2Syntax"
     },
+    "icon": "assets/icon.png",
     "publisher": "Vurv78",
     "categories": [],
     "keywords": [
@@ -24,7 +26,7 @@
     "contributes": {
         "configuration": {
             "type": "object",
-            "title": "E2-LS configs",
+            "title": "Expression2-LS configs",
             "properties": {
                 "E2.maxNumberOfProblems": {
                     "scope": "resource",
