@@ -56,11 +56,11 @@
 					}]
 				},
 				{
-					"name": "constant.language",
+					"name": "constant.numeric.language",
 					"match": "\\b_[\\w_]*\\b"
 				},
 				{
-					"name": "constant.language",
+					"name": "constant.language.self",
 					"match": "\\bThis\\b"
 				}
 			]
@@ -90,16 +90,16 @@
 		},
 		"directive": {
 			"patterns": [{
-				"name": "meta.preprocessor",
+				"name": "meta.preprocessor.directive",
 				"match": "@(name|model|trigger|autoupdate|strict)\\b.*\n?"
 			}, {
-				"name": "meta.preprocessor",
+				"name": "meta.preprocessor.directive",
 				"match": "@(inputs|outputs|persist)\\b"
 			}]
 		},
 		"keyword_stmt": {
 			"patterns": [{
-				"name": "keyword.control",
+				"name": "keyword.control.statement",
 				"match": "\\bif|while|for(each)?|return|switch|case|default|break|local|continue|else(?:if)?|function|try|catch|do\\b"
 			}]
 		},
@@ -120,7 +120,7 @@
 			"match": "\\b([A-Z][\\w]*)\\b"
 		},
 		"call": {
-			"name": "invalid.fncall",
+			"name": "invalid.functioncall",
 			"begin": "\\b([a-z]\\w*)(\\()",
 			"beginCaptures": {
 				"1": {
@@ -142,20 +142,20 @@
 			]
 		},
 		"function_def": {
-			"name": "entity.name.function",
+			"name": "entity.function.name",
 			"patterns": [
 				{
-					"name": "invalid",
+					"name": "invalid.functiondef",
 					"begin": "\\b(function)\\s+([a-z]+\\s+)?(?:([a-z]+)(:))?([a-z]\\w*)(\\()([^)]*)(\\))[\\s\\S]*({)",
 					"beginCaptures": {
 						"1": {
-							"name": "keyword.control"
+							"name": "keyword.control.statement"
 						},
 						"2": {
 							"name": "meta.return-type"
 						},
 						"3": {
-							"name": "entity.name.type"
+							"name": "entity.name.type.meta"
 						},
 						"4": {
 							"name": "keyword.operator"
