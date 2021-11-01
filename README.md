@@ -1,4 +1,4 @@
-# ``Expression-LS`` [![License](https://img.shields.io/github/license/Vurv78/E2Syntax?color=red)](https://opensource.org/licenses/MIT) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/Vurv78.e2-ls.svg](https://marketplace.visualstudio.com/items?itemName=Vurv78.e2-ls)
+# ``Expression-LS`` [![License](https://img.shields.io/github/license/Vurv78/E2Syntax?color=red)](https://opensource.org/licenses/MIT) [![Downloads](https://img.shields.io/visual-studio-marketplace/d/Vurv78.e2-ls.svg)](https://marketplace.visualstudio.com/items?itemName=Vurv78.e2-ls)
 
 Adds [Expression2](https://github.com/wiremod/wire) support to [Visual Studio Code](https://code.visualstudio.com/).
 
