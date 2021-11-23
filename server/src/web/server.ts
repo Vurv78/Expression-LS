@@ -14,18 +14,25 @@ import {
 	CompletionItemKind,
 	TextDocumentPositionParams,
 	TextDocumentSyncKind,
-	InitializeResult
-} from 'vscode-languageserver/node';
+	InitializeResult,
+	BrowserMessageReader,
+	BrowserMessageWriter
+} from 'vscode-languageserver/browser';
 
 import {
 	TextDocument
 } from 'vscode-languageserver-textdocument';
 
-import { Parser } from './parser';
+import { Parser } from '../parser';
+
+console.log("Running server from browser!");
+
+const messageReader = new BrowserMessageReader(self);
+const messageWriter = new BrowserMessageWriter(self);
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
-const connection = createConnection(ProposedFeatures.all);
+const connection = createConnection(messageReader, messageWriter);
 
 // Create a simple text document manager.
 const documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);

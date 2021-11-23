@@ -1,21 +1,24 @@
 {
-    "name": "e2-ls",
-    "description": "Client part of E2 Language Server",
-    "author": "Vurv78",
-    "contributors": ["Microsoft Corporation"],
-    "license": "MIT",
-    "version": "1.0.0",
-    "publisher": "vscode",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Vurv78/E2Syntax"
-    },
-    "engines": {
-        "node": "*"
-    },
-    "dependencies": {
-        "vscode-languageserver": "^7.0.0",
-        "vscode-languageserver-textdocument": "^1.0.1"
-    },
-    "scripts": {}
+	"name": "e2-ls",
+	"description": "Client part of E2 Language Server",
+	"author": "Vurv78",
+	"contributors": [
+		"Microsoft Corporation"
+	],
+	"license": "MIT",
+	"version": "1.0.0",
+	"publisher": "vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Vurv78/E2Syntax"
+	},
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"peggy": "^1.2.0",
+		"vscode-languageserver": "^7.0.0",
+		"vscode-languageserver-textdocument": "^1.0.1"
+	},
+	"scripts": {}
 }

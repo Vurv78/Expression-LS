@@ -1,111 +1,132 @@
 {
-    "name": "e2-ls",
-    "displayName": "Expression2-LS",
-    "description": "Language server for Expression2",
-    "author": "Vurv78",
-    "contributors": ["Microsoft Corporation"],
-    "license": "MIT",
-    "version": "1.0.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Vurv78/E2Syntax"
-    },
-    "icon": "assets/icon.png",
-    "publisher": "Vurv78",
-    "categories": [],
-    "keywords": [
-        "multi-root ready"
-    ],
-    "engines": {
-        "vscode": "^1.43.0"
-    },
-    "activationEvents": [
-        "onLanguage:expression2"
-    ],
-    "main": "./client/out/extension",
-    "contributes": {
-        "configuration": {
-            "type": "object",
-            "title": "Expression2-LS configs",
-            "properties": {
-                "E2.maxNumberOfProblems": {
-                    "scope": "resource",
-                    "type": "number",
-                    "default": 500,
-                    "description": "Controls the maximum number of problems produced by the server."
-                },
-                "E2.trace.server": {
-                    "scope": "window",
-                    "type": "string",
-                    "enum": [
-                        "off",
-                        "messages",
-                        "verbose"
-                    ],
-                    "default": "off",
-                    "description": "Traces the communication between VS Code and the language server."
-                }
-            }
-        },
-        "languages": [{
-            "id": "expression2",
-            "aliases": [
-                "Expression2",
-                "expression2"
-            ],
-            "extensions": [
-                ".e2",
-                ".expression2",
-                ".txt",
-                ".e2.txt"
-            ],
-            "configuration": "./e2cfg.json"
-        }],
-        "grammars": [{
-            "language": "expression2",
-            "scopeName": "source.e2",
-            "path": "./syntaxes/expression2.tmLanguage.json"
-        }],
-        "snippets": [{
-                "language": "expression2",
-                "path": "./snippets/directives.json"
-            },
-            {
-                "language": "expression2",
-                "path": "./snippets/keyword.json"
-            },
-            {
-                "language": "expression2",
-                "path": "./snippets/special.json"
-            },
-            {
-                "language": "expression2",
-                "path": "./snippets/functions.json"
-            },
-            {
-                "language": "expression2",
-                "path": "./snippets/types.json"
-            }
-        ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -b",
-        "watch": "tsc -b -w",
-        "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
-        "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-        "test": "sh ./scripts/e2e.sh"
-    },
-    "devDependencies": {
-        "@types/mocha": "^8.2.2",
-        "@types/node": "^12.12.0",
-        "@typescript-eslint/eslint-plugin": "^4.23.0",
-        "@typescript-eslint/parser": "^4.23.0",
-        "eslint": "^7.26.0",
-        "mocha": "^8.3.2",
-        "typescript": "^4.4.3"
-    },
-    "dependencies": {
-        "vscode-languageclient": "^7.0.0"
-    }
+	"name": "e2-ls",
+	"displayName": "Expression2-LS",
+	"description": "Language server for Expression2",
+	"author": "Vurv78",
+	"contributors": [
+		"Microsoft Corporation"
+	],
+	"license": "MIT",
+	"version": "1.1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Vurv78/Expression2-LS"
+	},
+	"icon": "assets/icon.png",
+	"publisher": "Vurv78",
+	"categories": [],
+	"keywords": [
+		"multi-root ready"
+	],
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"activationEvents": [
+		"onLanguage:expression2"
+	],
+	"main": "./client/dist/extension",
+	"browser": "./client/dist/web/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Expression2-LS configs",
+			"properties": {
+				"E2.maxNumberOfProblems": {
+					"scope": "resource",
+					"type": "number",
+					"default": 500,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"E2.trace.server": {
+					"scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VS Code and the language server."
+				}
+			}
+		},
+		"languages": [
+			{
+				"id": "expression2",
+				"aliases": [
+					"Expression2",
+					"expression2"
+				],
+				"extensions": [
+					".e2",
+					".expression2",
+					".txt",
+					".e2.txt"
+				],
+				"configuration": "./e2cfg.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "expression2",
+				"scopeName": "source.e2",
+				"path": "./syntaxes/expression2.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "expression2",
+				"path": "./snippets/directives.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/keyword.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/special.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/functions.json"
+			},
+			{
+				"language": "expression2",
+				"path": "./snippets/types.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run web:package",
+		"compile": "tsc -b",
+		"watch": "tsc -b -w",
+		"web:compile": "webpack",
+		"web:watch": "webpack --watch",
+		"web:package": "webpack --mode production --devtool hidden-source-map",
+		"lint": "eslint ./client/src ./server/src --ext .ts",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+		"test": "sh ./scripts/e2e.sh"
+	},
+	"devDependencies": {
+		"@types/mocha": "^8.2.2",
+		"@types/node": "^12.12.0",
+		"@typescript-eslint/eslint-plugin": "^4.23.0",
+		"@typescript-eslint/parser": "^4.23.0",
+		"@vscode/test-web": "^0.0.15",
+		"assert": "^2.0.0",
+		"browserfs": "^1.4.3",
+		"buffer": "^6.0.3",
+		"eslint": "^7.26.0",
+		"mocha": "^8.3.2",
+		"os-browserify": "^0.3.0",
+		"path-browserify": "^1.0.1",
+		"process": "^0.11.10",
+		"stream-browserify": "^3.0.0",
+		"ts-loader": "^9.2.6",
+		"tty-browserify": "^0.0.1",
+		"typescript": "^4.4.3",
+		"util": "^0.12.4",
+		"webpack": "^5.64.2",
+		"webpack-cli": "^4.9.1"
+	}
 }

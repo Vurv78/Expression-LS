@@ -5,10 +5,10 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "Launch Client",
+			"name": "Node: Launch Client",
 			"runtimeExecutable": "${execPath}",
 			"args": ["--extensionDevelopmentPath=${workspaceRoot}"],
-			"outFiles": ["${workspaceRoot}/client/out/**/*.js"],
+			"outFiles": ["${workspaceRoot}/client/dist/**/*.js"],
 			"preLaunchTask": {
 				"type": "npm",
 				"script": "watch"
@@ -17,28 +17,55 @@
 		{
 			"type": "node",
 			"request": "attach",
-			"name": "Attach to Server",
+			"name": "Node: Attach to Server",
 			"port": 6009,
 			"restart": true,
-			"outFiles": ["${workspaceRoot}/server/out/**/*.js"]
+			"outFiles": ["${workspaceRoot}/server/dist/**/*.js"]
 		},
 		{
-			"name": "Language Server E2E Test",
+			"name": "Node: Language Server E2E Test",
 			"type": "extensionHost",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceRoot}",
-				"--extensionTestsPath=${workspaceRoot}/client/out/test/index",
+				"--extensionTestsPath=${workspaceRoot}/client/dist/test/index",
 				"${workspaceRoot}/client/testFixture"
 			],
-			"outFiles": ["${workspaceRoot}/client/out/test/**/*.js"]
+			"outFiles": ["${workspaceRoot}/client/dist/test/**/*.js"]
+		},
+		{
+			"name": "Web: Launch Client",
+			"type": "pwa-extensionHost",
+			"debugWebWorkerHost": true,
+			"request": "launch",
+			"args": [
+			  "--extensionDevelopmentPath=${workspaceFolder}",
+			  "--extensionDevelopmentKind=web"
+			],
+			"outFiles": ["${workspaceFolder}/client/dist/web/**/*.js"],
+			"preLaunchTask": {
+				"type": "npm",
+				"script": "web:watch"
+			}
+		},
+		{
+			"name": "Web: Attach to Server",
+			"type": "pwa-extensionHost",
+			"debugWebWorkerHost": true,
+			"port": 6009,
+			"restart": true,
+			"outFiles": ["${workspaceFolder}/server/dist/web/**/*.js"]
 		}
 	],
 	"compounds": [
 		{
-			"name": "Client + Server",
-			"configurations": ["Launch Client", "Attach to Server"]
+			"name": "Node: Client + Server",
+			"configurations": ["Node: Launch Client", "Node: Attach to Server"]
+		},
+		{
+			"name": "Web: Client + Server",
+			"configurations": ["Web: Launch Client", "Web: Attach to Server"]
 		}
 	]
 }
