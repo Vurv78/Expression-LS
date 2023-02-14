@@ -41,6 +41,14 @@
 							"match": "\\b0[xX][0-9a-fA-F]+\\b"
 						},
 						{
+							"name": "constant.numeric.hex",
+							"match": "\\b0b[01]+\\b"
+						},
+						{
+							"name": "constant.numeric.hex",
+							"match": "\\b\\d*[ijk]\\b"
+						},
+						{
 							"name": "constant.numeric.normal",
 							"match": "\\b\\d+(?:[e.]\\d+)?\\b"
 						}
@@ -100,7 +108,7 @@
 		"keyword_stmt": {
 			"patterns": [{
 				"name": "keyword.control.statement",
-				"match": "\\bif|while|for(each)?|return|switch|case|default|break|local|continue|else(?:if)?|function|try|catch|do\\b"
+				"match": "\\bif|while|for(each)?|return|event|switch|case|default|break|local|continue|else(?:if)?|function|try|catch|do\\b"
 			}]
 		},
 		"type": {
