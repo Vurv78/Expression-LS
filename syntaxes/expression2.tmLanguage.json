@@ -60,7 +60,7 @@
 					"end": "\"",
 					"patterns": [{
 						"name": "constant.character.escape",
-						"match": "\\\\(a|b|f|n|r|t|v)"
+						"match": "\\\\(a|b|f|n|r|t|v|\")"
 					}]
 				},
 				{
