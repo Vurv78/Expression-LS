@@ -146,7 +146,8 @@
 				}
 			},
 			"patterns": [
-				{"include": "#expression"}
+				{"include": "#expression"},
+				{"include": "#comment"}
 			]
 		},
 		"function_def": {
@@ -160,7 +161,7 @@
 							"name": "keyword.control.statement"
 						},
 						"2": {
-							"name": "meta.return-type"
+							"name": "entity.name.type"
 						},
 						"3": {
 							"name": "entity.name.type.meta"
