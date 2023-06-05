@@ -21,6 +21,7 @@
 				{"include": "#grammar"},
 
 				{"include": "#identifier"},
+				{"include": "#formatcall"},
 				{"include": "#call"},
 				{"include": "#type"}
 			]
@@ -108,7 +109,7 @@
 		"keyword_stmt": {
 			"patterns": [{
 				"name": "keyword.control.statement",
-				"match": "\\bif|while|for(each)?|return|event|switch|case|default|break|local|continue|else(?:if)?|function|try|catch|do\\b"
+				"match": "\\b(?:if|while|for(each)?|return|event|switch|case|default|break|local|continue|else(?:if)?|function|try|catch|do)\\b"
 			}]
 		},
 		"type": {
@@ -126,6 +127,50 @@
 		"identifier": {
 			"name": "variable.other",
 			"match": "\\b([A-Z][\\w]*)\\b"
+		},
+		"formatcall": {
+			"name": "invalid.functioncall",
+			"begin": "\\b(format)(\\()([^,]+)",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function"
+				},
+				"2": {
+					"name": "keyword.operator"
+				},
+				"3": {
+					"name": "entity.name.class",
+					"patterns": [
+						{"include": "#format_string"},
+						{"include": "#expression"}
+					]
+				}
+			},
+			"end": "(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.operator"
+				}
+			},
+			"patterns": [
+				{"include": "#expression"},
+				{"include": "#comment"}
+			]
+		},
+		"format_string": {
+			"name": "string.quoted.double",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\(a|b|f|n|r|t|v|\")"
+				},
+				{
+					"name": "constant.character.escape",
+					"match": "(%(?:[.\\d]*)[sduqpi])"
+				}
+			]
 		},
 		"call": {
 			"name": "invalid.functioncall",
